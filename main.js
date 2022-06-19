@@ -4,6 +4,57 @@ const FULL_HEART = '♥'
 
 // Your JavaScript code goes here!
 
+  const span = document.querySelectorAll(' li span ')
+  for ( let like of span){
+    like.addEventListener('click',function(e){
+      console.log('click me')
+      
+      mimicServerCall ()
+      .then(function(data){
+      if (e.target.textContent=== EMPTY_HEART){
+       e.target.textContent= FULL_HEART
+      e.target.className ='activated-heart'
+
+  }
+    else if (e.target.textContent=== FULL_HEART){
+    e.target.textContent= EMPTY_HEART
+    e.target.className=''
+
+  }})
+  .catch (function(error){
+    const error1= document.querySelector('#modal')
+    error1.className = ''
+    error1.innerText= error
+    setTimeout(function(){
+      error1.className = 'hidden'
+
+    }, 3000)
+  })
+
+  } )
+  
+  }
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
